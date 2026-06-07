@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Cricket Scorer Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<style>
+/* ── Reset & tokens ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pitch:      #0d3b1e;
+  --green:      #1b5e20;
+  --mid:        #2e7d32;
+  --leaf:       #4caf50;
+  --lime:       #a5d6a7;
+  --cream:      #f9f6ef;
+  --parchment:  #f2ede3;
+  --ink:        #1a1a1a;
+  --ink-soft:   #3d3d3d;
+  --ink-muted:  #6b6b6b;
+  --rule:       #d4cbba;
+  --gold:       #c9a84c;
+  --gold-light: #f5e6c3;
+  --white:      #ffffff;
+  --shadow:     0 2px 20px rgba(13,59,30,.10);
+  --shadow-lg:  0 8px 40px rgba(13,59,30,.15);
+  --r:          12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Noise texture overlay ──────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.site-header {
+  background: var(--pitch);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--gold);
+}
+.site-header__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.site-header__logo-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+.site-header__logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  letter-spacing: .02em;
+}
+.site-header__badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--pitch) 0%, var(--green) 60%, var(--mid) 100%);
+  color: var(--white);
+  padding: 80px 24px 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(76,175,80,.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero__stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 30px;
+  padding: 6px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 28px;
+}
+.hero__stamp::before { content: '●'; color: var(--leaf); font-size: 8px; animation: blink 1.8s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+
+.hero__icon { font-size: 64px; display: block; margin-bottom: 18px; animation: floatIcon 4s ease-in-out infinite; }
+@keyframes floatIcon { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+.hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 7vw, 58px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.hero__title span { color: var(--gold); }
+
+.hero__sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,.72);
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+.hero__meta {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.hero__meta-item {
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.hero__meta-item strong { color: rgba(255,255,255,.85); font-weight: 500; }
+
+/* ── Quick promise bar ──────────────────────────────────────────────────── */
+.promise-bar {
+  background: var(--gold-light);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+.promise-bar__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.promise-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.promise-item__icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.promise-item__text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pitch);
+  margin-bottom: 1px;
+}
+.promise-item__text span {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+/* ── TOC ────────────────────────────────────────────────────────────────── */
+.toc-wrap {
+  max-width: 960px;
+  margin: 56px auto 0;
+  padding: 0 24px;
+}
+.toc {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--leaf);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  box-shadow: var(--shadow);
+}
+.toc__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 18px;
+}
+.toc__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 6px 24px;
+}
+.toc__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-size: 14px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  transition: all .18s;
+}
+.toc__link:hover { background: var(--parchment); color: var(--green); padding-left: 12px; }
+.toc__link-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--leaf);
+  background: var(--parchment);
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Main content ───────────────────────────────────────────────────────── */
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ── Section ────────────────────────────────────────────────────────────── */
+.section {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.section.visible { opacity: 1; transform: translateY(0); }
+
+.section__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--rule);
+}
+.section__num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--lime);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+.section__title-wrap {}
+.section__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 3px;
+}
+.section__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--pitch);
+  line-height: 1.2;
+}
+
+.section p {
+  margin-bottom: 16px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 300;
+}
+.section p:last-child { margin-bottom: 0; }
+
+/* ── Sub-heading ───────────────────────────────────────────────────────── */
+.sub-heading {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin: 28px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sub-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── Callout box ────────────────────────────────────────────────────────── */
+.callout {
+  border-radius: var(--r);
+  padding: 20px 24px;
+  margin: 24px 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.callout--green  { background: #e8f5e9; border-left: 4px solid var(--leaf); }
+.callout--gold   { background: var(--gold-light); border-left: 4px solid var(--gold); }
+.callout--dark   { background: var(--pitch); border-left: 4px solid var(--gold); color: var(--white); }
+.callout__icon   { font-size: 24px; flex-shrink: 0; margin-top: 1px; }
+.callout__body   {}
+.callout__title  { font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+.callout--green .callout__title  { color: var(--green); }
+.callout--gold  .callout__title  { color: #7a5c00; }
+.callout--dark  .callout__title  { color: var(--gold); }
+.callout__text  { font-size: 14px; line-height: 1.65; }
+.callout--green .callout__text  { color: var(--ink-soft); }
+.callout--gold  .callout__text  { color: #5a4510; }
+.callout--dark  .callout__text  { color: rgba(255,255,255,.75); }
+
+/* ── Bullet list ───────────────────────────────────────────────────────── */
+.policy-list {
+  list-style: none;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.policy-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--ink-soft);
+  font-weight: 300;
+  line-height: 1.65;
+}
+.policy-list li::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--leaf);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* ── Data table ─────────────────────────────────────────────────────────── */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--white);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.data-table thead tr {
+  background: var(--pitch);
+  color: var(--white);
+}
+.data-table thead th {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.data-table thead th:first-child { color: var(--gold); }
+.data-table tbody tr:nth-child(even)  { background: #f7f5f0; }
+.data-table tbody tr:hover { background: #edf7ee; }
+.data-table tbody td {
+  padding: 13px 18px;
+  color: var(--ink-soft);
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.6;
+}
+.data-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--green);
+  white-space: nowrap;
+  width: 30%;
+}
+.tag-no  { display:inline-block; background:#ffebee; color:#c62828; font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; letter-spacing:.05em; }
+.tag-yes { display:inline-block; background:#e8f5e9; color:#2e7d32; font-size:11px; font-weight:700; padding:2px 8px; border-radius:12px; letter-spacing:.05em; }
+
+/* ── Compliance grid ────────────────────────────────────────────────────── */
+.compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+.compliance-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  padding: 18px 16px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.compliance-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--leaf), var(--green));
+}
+.compliance-card__flag { font-size: 22px; margin-bottom: 8px; display: block; }
+.compliance-card__name { font-weight: 700; font-size: 14px; color: var(--pitch); margin-bottom: 6px; }
+.compliance-card__status {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #e8f5e9; color: var(--green);
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 12px; margin-bottom: 8px;
+}
+.compliance-card__note { font-size: 12px; color: var(--ink-muted); line-height: 1.55; }
+
+/* ── Contact card ───────────────────────────────────────────────────────── */
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+.contact-card__header {
+  background: linear-gradient(135deg, var(--pitch), var(--mid));
+  padding: 24px 28px;
+  color: var(--white);
+}
+.contact-card__header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.contact-card__header p { font-size: 13px; color: rgba(255,255,255,.65); }
+.contact-card__body { padding: 24px 28px; }
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-row__icon { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; margin-top: 1px; }
+.contact-row__label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-muted); margin-bottom: 2px; }
+.contact-row__value { font-size: 14px; color: var(--ink-soft); }
+.contact-row__value a { color: var(--green); text-decoration: none; }
+.contact-row__value a:hover { text-decoration: underline; }
+
+/* ── Back to top ─────────────────────────────────────────────────────────── */
+.back-top {
+  position: fixed;
+  bottom: 32px; right: 28px;
+  width: 44px; height: 44px;
+  background: var(--green);
+  color: var(--white);
+  border: none; border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(27,94,32,.35);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s, transform .25s;
+  z-index: 50;
+}
+.back-top.show { opacity: 1; pointer-events: auto; }
+.back-top:hover { transform: translateY(-3px); }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.site-footer {
+  background: var(--pitch);
+  color: rgba(255,255,255,.45);
+  text-align: center;
+  padding: 36px 24px;
+  font-size: 13px;
+}
+.site-footer strong { color: rgba(255,255,255,.75); font-weight: 500; }
+.site-footer__divider { margin: 10px 0; }
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero { padding: 56px 20px 70px; }
+  .content { padding: 36px 16px 64px; }
+  .toc-wrap { padding: 0 16px; }
+  .toc { padding: 22px 20px; }
+  .section__num { font-size: 30px; min-width: 30px; }
+  .section__title { font-size: 21px; }
+  .data-table tbody td:first-child { white-space: normal; }
+}
+
+/* ── Print ──────────────────────────────────────────────────────────────── */
+@media print {
+  .site-header, .back-top, .promise-bar { display: none; }
+  .section { opacity: 1 !important; transform: none !important; }
+  body { background: white; font-size: 13px; }
+  .hero { background: var(--pitch) !important; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Sticky header ─────────────────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="#" class="site-header__logo">
+      <span class="site-header__logo-icon">🏏</span>
+      <span class="site-header__logo-text">Cricket Scorer Pro</span>
+    </a>
+    <span class="site-header__badge">Privacy Policy</span>
+  </div>
+</header>
+
+<!-- ── Hero ─────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__stamp">Effective June 8, 2026</div>
+  <span class="hero__icon">🏏</span>
+  <h1 class="hero__title">Cricket Scorer <span>Privacy</span> Policy</h1>
+  <p class="hero__sub">Your data stays on your device. Always. No exceptions.</p>
+  <div class="hero__meta">
+    <span class="hero__meta-item">📱 <strong>Android &amp; iOS</strong></span>
+    <span class="hero__meta-item">📄 <strong>Version 1.0</strong></span>
+    <span class="hero__meta-item">🌐 <strong>EN / বাংলা</strong></span>
+  </div>
+</section>
+
+<!-- ── Promise bar ────────────────────────────────────────────────────────── -->
+<div class="promise-bar">
+  <div class="promise-bar__inner">
+    <div class="promise-item">
+      <span class="promise-item__icon">🔒</span>
+      <div class="promise-item__text">
+        <strong>Zero Data Collection</strong>
+        <span>Nothing leaves your phone</span>
+      </div>
+    </div>
+    <div class="promise-item">
+      <span class="promise-item__icon">📵</span>
+      <div class="promise-item__text">
+        <strong>No Internet Needed</strong>
+        <span>100% offline app</span>
+      </div>
+    </div>
+    <div class="promise-item">
+      <span class="promise-item__icon">🚫</span>
+      <div class="promise-item__text">
+        <strong>No Ads, No Trackers</strong>
+        <span>No third-party SDKs</span>
+      </div>
+    </div>
+    <div class="promise-item">
+      <span class="promise-item__icon">👤</span>
+      <div class="promise-item__text">
+        <strong>No Account Required</strong>
+        <span>Use immediately, anonymously</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Table of contents ──────────────────────────────────────────────────── -->
+<div class="toc-wrap">
+  <nav class="toc">
+    <div class="toc__title">📋 Table of Contents</div>
+    <div class="toc__grid">
+      <a href="#s1"  class="toc__link"><span class="toc__link-num">1</span> Introduction</a>
+      <a href="#s2"  class="toc__link"><span class="toc__link-num">2</span> What the App Does</a>
+      <a href="#s3"  class="toc__link"><span class="toc__link-num">3</span> Data We Don't Collect</a>
+      <a href="#s4"  class="toc__link"><span class="toc__link-num">4</span> Data Stored on Device</a>
+      <a href="#s5"  class="toc__link"><span class="toc__link-num">5</span> App Permissions</a>
+      <a href="#s6"  class="toc__link"><span class="toc__link-num">6</span> Third-Party Services</a>
+      <a href="#s7"  class="toc__link"><span class="toc__link-num">7</span> Children's Privacy</a>
+      <a href="#s8"  class="toc__link"><span class="toc__link-num">8</span> Data Security</a>
+      <a href="#s9"  class="toc__link"><span class="toc__link-num">9</span> Your Rights</a>
+      <a href="#s10" class="toc__link"><span class="toc__link-num">10</span> Policy Changes</a>
+      <a href="#s11" class="toc__link"><span class="toc__link-num">11</span> Regulatory Compliance</a>
+      <a href="#s12" class="toc__link"><span class="toc__link-num">12</span> Google Play Safety</a>
+      <a href="#s13" class="toc__link"><span class="toc__link-num">13</span> Apple Nutrition Label</a>
+      <a href="#s14" class="toc__link"><span class="toc__link-num">14</span> Contact Us</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ── Main content ──────────────────────────────────────────────────────── -->
+<main class="content">
+
+  <!-- 1 -->
+  <article class="section" id="s1">
+    <div class="section__header">
+      <div class="section__num">01</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Overview</div>
+        <h2 class="section__title">Introduction</h2>
+      </div>
+    </div>
+    <p>Welcome to Cricket Scorer Pro. This Privacy Policy explains how we handle information when you use the App on Android or iOS. We want to be clear upfront: <strong>this App is designed to work completely offline and does not collect, transmit, or share any personal information</strong> with us or any third party.</p>
+    <p>By using Cricket Scorer Pro you acknowledge that you have read and understood this policy. If you have any questions, see <a href="#s14" style="color:var(--green)">Section 14</a> for contact details.</p>
+    <div class="callout callout--dark">
+      <div class="callout__icon">🏏</div>
+      <div class="callout__body">
+        <div class="callout__title">Our core promise</div>
+        <div class="callout__text">Cricket Scorer Pro was built for cricket lovers who just want to score a game — no sign-up, no cloud, no surveillance. Your match data is yours, stored only on your device.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="section" id="s2">
+    <div class="section__header">
+      <div class="section__num">02</div>
+      <div class="section__title-wrap">
+        <div class="section__label">App Overview</div>
+        <h2 class="section__title">What the App Does</h2>
+      </div>
+    </div>
+    <p>Cricket Scorer Pro is a mobile cricket scoring application. Its features include:</p>
+    <ul class="policy-list">
+      <li>Recording ball-by-ball cricket scores for matches and tournaments</li>
+      <li>Storing player names, team names, and match statistics locally</li>
+      <li>Generating batting and bowling scorecards per innings</li>
+      <li>Managing Round Robin and Knockout tournaments with standings tables</li>
+      <li>Offline-first operation — no internet connection required at any point</li>
+    </ul>
+    <p>All data is entered manually by the user and stored exclusively in a local SQLite database on the user's own device.</p>
+  </article>
+
+  <!-- 3 -->
+  <article class="section" id="s3">
+    <div class="section__header">
+      <div class="section__num">03</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Data Practices</div>
+        <h2 class="section__title">Information We Do NOT Collect</h2>
+      </div>
+    </div>
+    <div class="callout callout--gold">
+      <div class="callout__icon">🔒</div>
+      <div class="callout__body">
+        <div class="callout__title">Zero data collection policy</div>
+        <div class="callout__text">We do not collect, transmit, or share any data from your device — ever. The table below is exhaustive.</div>
+      </div>
+    </div>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Collected?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Personal Information (name, email, phone, age)</td><td><span class="tag-no">NOT COLLECTED</span> — No account or registration needed</td></tr>
+          <tr><td>Location (GPS, IP address, region)</td><td><span class="tag-no">NOT COLLECTED</span> — Location permission not requested</td></tr>
+          <tr><td>Device Identifiers (IMEI, advertising ID)</td><td><span class="tag-no">NOT COLLECTED</span> — No device fingerprinting</td></tr>
+          <tr><td>Usage Analytics (which features you use)</td><td><span class="tag-no">NOT COLLECTED</span> — No analytics SDK integrated</td></tr>
+          <tr><td>Crash Reports (auto-sent error logs)</td><td><span class="tag-no">NOT COLLECTED</span> — No Crashlytics or similar</td></tr>
+          <tr><td>Contacts (phone address book)</td><td><span class="tag-no">NOT COLLECTED</span> — Contacts permission not requested</td></tr>
+          <tr><td>Camera / Photos / Media</td><td><span class="tag-no">NOT COLLECTED</span> — No media access</td></tr>
+          <tr><td>Network / Internet Requests</td><td><span class="tag-no">NOT COLLECTED</span> — No internet permission declared</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="section" id="s4">
+    <div class="section__header">
+      <div class="section__num">04</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Local Storage</div>
+        <h2 class="section__title">Data Stored on Your Device</h2>
+      </div>
+    </div>
+    <p>The App stores data locally using SQLite — a standard embedded database. This data is created entirely by you and remains under your control at all times.</p>
+
+    <div class="sub-heading">What is stored</div>
+    <ul class="policy-list">
+      <li>Team names and player names that you enter manually</li>
+      <li>Match scores, ball-by-ball records, and innings statistics</li>
+      <li>Tournament names, fixtures, and standings</li>
+      <li>App preferences (e.g. over count settings)</li>
+    </ul>
+
+    <div class="sub-heading">Where it lives</div>
+    <p>All data is written to the app's <strong>private sandboxed storage directory</strong> on your device (<code style="background:#f0ebe0;padding:2px 6px;border-radius:4px;font-size:13px;">/data/data/com.example.cricket_scorer/</code> on Android). No other app can access this directory.</p>
+
+    <div class="sub-heading">How to delete your data</div>
+    <ul class="policy-list">
+      <li>Delete individual matches from the Home screen (swipe left → Delete)</li>
+      <li>Uninstall the app to remove all data permanently</li>
+      <li>Device Settings → Apps → Cricket Scorer Pro → Clear Data</li>
+    </ul>
+  </article>
+
+  <!-- 5 -->
+  <article class="section" id="s5">
+    <div class="section__header">
+      <div class="section__num">05</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Permissions</div>
+        <h2 class="section__title">App Permissions</h2>
+      </div>
+    </div>
+    <p>Cricket Scorer Pro requests the <strong>minimum permissions necessary</strong> to function. When you install the app, you will not be asked to grant any sensitive permissions.</p>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Permission</th><th>Status &amp; Reason</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>INTERNET</td><td><span class="tag-no">NOT REQUESTED</span> — App works fully offline. Not declared in AndroidManifest.</td></tr>
+          <tr><td>READ / WRITE External Storage</td><td><span class="tag-no">NOT REQUESTED</span> — Uses private app-internal storage only.</td></tr>
+          <tr><td>Camera</td><td><span class="tag-no">NOT REQUESTED</span> — No photo or video features.</td></tr>
+          <tr><td>Location (Fine or Coarse)</td><td><span class="tag-no">NOT REQUESTED</span> — Location is never accessed.</td></tr>
+          <tr><td>Contacts / Address Book</td><td><span class="tag-no">NOT REQUESTED</span> — No contact access.</td></tr>
+          <tr><td>Push Notifications</td><td><span class="tag-no">NOT REQUESTED</span> — No background notifications.</td></tr>
+          <tr><td>Biometrics</td><td><span class="tag-no">NOT REQUESTED</span> — No biometric lock or authentication.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout--green">
+      <div class="callout__icon">✅</div>
+      <div class="callout__body">
+        <div class="callout__title">Result</div>
+        <div class="callout__text">When you install Cricket Scorer Pro, Android and iOS will not display any permission dialogs. The app installs and runs immediately — no approvals needed. It works offline always, including in stadiums with no signal.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 6 -->
+  <article class="section" id="s6">
+    <div class="section__header">
+      <div class="section__num">06</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Integrations</div>
+        <h2 class="section__title">Third-Party Services</h2>
+      </div>
+    </div>
+    <p>Cricket Scorer Pro does not integrate with, connect to, or share data with any third-party service. Specifically:</p>
+    <ul class="policy-list">
+      <li><strong>No analytics SDK</strong> — Firebase Analytics, Mixpanel, Amplitude, etc. are not included</li>
+      <li><strong>No advertising SDK</strong> — AdMob, Facebook Ads, ironSource are not included</li>
+      <li><strong>No crash-reporting SDK</strong> — Crashlytics, Sentry, Bugsnag are not included</li>
+      <li><strong>No social login</strong> — Google Sign-In, Apple Sign-In, Facebook Login are not used</li>
+      <li><strong>No cloud backup</strong> — iCloud sync, Google Drive, Firebase are not used</li>
+    </ul>
+    <p>The only external code used is the <strong>Flutter framework</strong> and standard open-source packages (<code style="background:#f0ebe0;padding:2px 6px;border-radius:4px;font-size:13px;">sqflite, uuid, intl, path_provider</code>). None of these libraries collect, transmit, or process personal data.</p>
+  </article>
+
+  <!-- 7 -->
+  <article class="section" id="s7">
+    <div class="section__header">
+      <div class="section__num">07</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Child Safety</div>
+        <h2 class="section__title">Children's Privacy</h2>
+      </div>
+    </div>
+    <p>Cricket Scorer Pro is suitable for users of <strong>all ages, including children under 13</strong>. Because the App does not collect any personal information from any user, it complies with:</p>
+    <ul class="policy-list">
+      <li>COPPA (Children's Online Privacy Protection Act, USA)</li>
+      <li>UK Children's Code (Age Appropriate Design Code)</li>
+      <li>GDPR provisions for children (Article 8)</li>
+    </ul>
+    <p>Parents and guardians can allow children to use this App without concern. No registration, email address, or personal details are required at any point.</p>
+  </article>
+
+  <!-- 8 -->
+  <article class="section" id="s8">
+    <div class="section__header">
+      <div class="section__num">08</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Safety</div>
+        <h2 class="section__title">Data Security</h2>
+      </div>
+    </div>
+    <p>Because all data is stored locally and never transmitted, the security of your cricket data depends on the security of your device. We recommend:</p>
+    <ul class="policy-list">
+      <li>Using a screen lock or biometric authentication on your device</li>
+      <li>Keeping your device's operating system up to date</li>
+      <li>Not sharing your device with untrusted individuals</li>
+    </ul>
+    <p>We do not have access to your data and therefore cannot "breach" it on our end. Your data is as secure as your phone.</p>
+  </article>
+
+  <!-- 9 -->
+  <article class="section" id="s9">
+    <div class="section__header">
+      <div class="section__num">09</div>
+      <div class="section__title-wrap">
+        <div class="section__label">User Rights</div>
+        <h2 class="section__title">Your Rights</h2>
+      </div>
+    </div>
+    <p>Since we do not collect or hold any personal data on our servers, data-subject rights are exercised directly on your device. You have:</p>
+    <ul class="policy-list">
+      <li><strong>Right to access</strong> — Open the app at any time to view all stored matches and tournaments.</li>
+      <li><strong>Right to delete</strong> — Delete any match, tournament, or all data by clearing app storage.</li>
+      <li><strong>Right to portability</strong> — Your SQLite database is stored in your device's app folder.</li>
+    </ul>
+    <p>If you are located in the EU/EEA, UK, or another jurisdiction with data protection laws, you may contact us with any privacy concerns and we will respond within 30 days.</p>
+  </article>
+
+  <!-- 10 -->
+  <article class="section" id="s10">
+    <div class="section__header">
+      <div class="section__num">10</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Updates</div>
+        <h2 class="section__title">Changes to This Policy</h2>
+      </div>
+    </div>
+    <p>We may update this Privacy Policy when we add new features to the App. When we do, we will:</p>
+    <ul class="policy-list">
+      <li>Update the "Effective Date" at the top of this document</li>
+      <li>Post the new policy in the App's Play Store / App Store listing</li>
+      <li>Increment the version number</li>
+    </ul>
+    <p>Continued use of the App after a policy update constitutes acceptance of the revised policy.</p>
+  </article>
+
+  <!-- 11 -->
+  <article class="section" id="s11">
+    <div class="section__header">
+      <div class="section__num">11</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Legal</div>
+        <h2 class="section__title">Regulatory Compliance</h2>
+      </div>
+    </div>
+    <p>Cricket Scorer Pro has been designed to comply with major data protection regulations worldwide. Because no personal data is collected, the compliance burden is minimal by design.</p>
+    <div class="compliance-grid">
+      <div class="compliance-card">
+        <span class="compliance-card__flag">🇪🇺</span>
+        <div class="compliance-card__name">GDPR (EU/EEA)</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">No personal data processed. No lawful basis required.</div>
+      </div>
+      <div class="compliance-card">
+        <span class="compliance-card__flag">🇬🇧</span>
+        <div class="compliance-card__name">UK GDPR</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">Same basis as EU GDPR post-Brexit.</div>
+      </div>
+      <div class="compliance-card">
+        <span class="compliance-card__flag">🇺🇸</span>
+        <div class="compliance-card__name">CCPA (California)</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">No personal information sold, shared, or disclosed.</div>
+      </div>
+      <div class="compliance-card">
+        <span class="compliance-card__flag">👶</span>
+        <div class="compliance-card__name">COPPA (Children)</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">No data collected from users of any age.</div>
+      </div>
+      <div class="compliance-card">
+        <span class="compliance-card__flag">🇧🇩</span>
+        <div class="compliance-card__name">PDPA (Bangladesh)</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">No personal data collected or transmitted.</div>
+      </div>
+      <div class="compliance-card">
+        <span class="compliance-card__flag">🏪</span>
+        <div class="compliance-card__name">Google Play Policy</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">No sensitive permissions. No data collection declared.</div>
+      </div>
+      <div class="compliance-card">
+        <span class="compliance-card__flag">🍎</span>
+        <div class="compliance-card__name">Apple App Store</div>
+        <div class="compliance-card__status">✓ Compliant</div>
+        <div class="compliance-card__note">Privacy Nutrition Label: "No Data Collected."</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 12 -->
+  <article class="section" id="s12">
+    <div class="section__header">
+      <div class="section__num">12</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Store Listing</div>
+        <h2 class="section__title">Google Play — Data Safety</h2>
+      </div>
+    </div>
+    <p>For the Google Play Store Data Safety section, Cricket Scorer Pro declares:</p>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Field</th><th>Declaration</th></tr></thead>
+        <tbody>
+          <tr><td>Data collected</td><td><span class="tag-no">None</span></td></tr>
+          <tr><td>Data shared with third parties</td><td><span class="tag-no">None</span></td></tr>
+          <tr><td>Data encrypted in transit</td><td>N/A — no data is transmitted</td></tr>
+          <tr><td>Data deletion option</td><td><span class="tag-yes">Yes</span> — via app storage clear or uninstall</td></tr>
+          <tr><td>Independent security review</td><td>Not applicable — no data collection</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <!-- 13 -->
+  <article class="section" id="s13">
+    <div class="section__header">
+      <div class="section__num">13</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Store Listing</div>
+        <h2 class="section__title">Apple App Store — Nutrition Label</h2>
+      </div>
+    </div>
+    <p>In App Store Connect Privacy, Cricket Scorer Pro declares:</p>
+    <div class="callout callout--green">
+      <div class="callout__icon">🍎</div>
+      <div class="callout__body">
+        <div class="callout__title">Data Not Collected</div>
+        <div class="callout__text">No data is collected from this app. All categories — Contact Info, Health &amp; Fitness, Financial Info, Location, Sensitive Info, Contacts, User Content, Browsing History, Search History, Identifiers, Usage Data, Diagnostics — are set to "Not Collected."</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 14 -->
+  <article class="section" id="s14">
+    <div class="section__header">
+      <div class="section__num">14</div>
+      <div class="section__title-wrap">
+        <div class="section__label">Get in Touch</div>
+        <h2 class="section__title">Contact Us</h2>
+      </div>
+    </div>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us. We respond within 30 calendar days.</p>
+    <div class="contact-card">
+      <div class="contact-card__header">
+        <h3>🏏 Cricket Scorer Pro</h3>
+        <p>Developer contact &amp; privacy inquiries</p>
+      </div>
+      <div class="contact-card__body">
+        <div class="contact-row">
+          <span class="contact-row__icon">👨‍💻</span>
+          <div>
+            <div class="contact-row__label">Developer</div>
+            <div class="contact-row__value">Md Touhedul Islam</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row__icon">📧</span>
+          <div>
+            <div class="contact-row__label">Email</div>
+            <div class="contact-row__value"><a href="mailto:privacy@cricketscorepro.app">privacy@cricketscorepro.app</a> <em style="color:var(--ink-muted);font-size:12px">(replace with your actual email)</em></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row__icon">🤖</span>
+          <div>
+            <div class="contact-row__label">Google Play</div>
+            <div class="contact-row__value"><a href="#">play.google.com/store/apps/details?id=com.example.cricket_scorer</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row__icon">🍎</span>
+          <div>
+            <div class="contact-row__label">App Store</div>
+            <div class="contact-row__value"><a href="#">apps.apple.com/app/cricket-scorer-pro</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row__icon">⏱</span>
+          <div>
+            <div class="contact-row__label">Response Time</div>
+            <div class="contact-row__value">Within 30 calendar days</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout--dark" style="margin-top:32px">
+      <div class="callout__icon">🔒</div>
+      <div class="callout__body">
+        <div class="callout__title">Final Summary</div>
+        <div class="callout__text">Cricket Scorer Pro is a 100% offline app. It stores your cricket data only on your own device. No personal information is collected. No data leaves your phone. No registration required. No internet connection needed. Your privacy is fully protected by design — not by policy.</div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div>🏏 <strong>Cricket Scorer Pro</strong></div>
+  <div class="site-footer__divider">Privacy Policy · Version 1.0 · Effective June 8, 2026</div>
+  <div>© 2026 Md Touhedul Islam. All rights reserved.</div>
+</footer>
+
+<!-- ── Back to top ────────────────────────────────────────────────────────── -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// Scroll-triggered section reveals
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+// Back to top button
+const btn = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('show', window.scrollY > 400);
+});
+
+// Stagger section animations slightly
+document.querySelectorAll('.section').forEach((s, i) => {
+  s.style.transitionDelay = `${i * 0.04}s`;
+});
+</script>
+</body>
+</html>
